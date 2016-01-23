@@ -1,0 +1,14 @@
+---
+video:                Moorio.mp4
+spritesDirectory:     moorioSprites
+framesPerSecond:      28
+imageThreshold:       0.75
+outputFolder:         ./frames/
+videoScaling:         0.4484
+overlapThreshold:     0.05
+
+Tmax:                 50
+Tmin:                 0.025
+iterations:           250
+metaIterations:       2
+

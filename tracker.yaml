@@ -1,0 +1,17 @@
+---
+video:                Moorio.mp4
+spritesDirectory:     moorioSprites
+frameCSV:             ./frames/frameDescriptionsMoorio.mp4_28_0.75.csv
+frameFolder:          ./frames/
+
+
+velMedianWindow:      2
+distanceScale:        1000
+creationCost:         0.1
+deletionCost:         0.015
+missGate:             14
+spriteMatchThreshold: 0.1
+maxDistanceGate:      2
+minTrackLength:       14
+edgeGuard:            1.2
+movingProbThreshold:  0.15

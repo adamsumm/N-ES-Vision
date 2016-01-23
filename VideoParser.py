@@ -5,13 +5,13 @@ from ssim import SSIM
 from ssim.utils import get_gaussian_kernel
 from PIL import Image, ImageOps
 import random
-
+import yaml
 class FrameParser: 
 	def __init__(self, threshold=0.8):
 		self.threshold = threshold
 
 	#Returns a list of columns with a description of the sprites in the passed in frame Image
-	def GetFrameDescription(self, frameNumber, frame, sprites,matching, overlapThreshold =0.05, minDist = 4 ):		
+	def GetFrameDescription(self, frameNumber, frame, sprites,matching, overlapThreshold ,Tmin,Tmax,iterations,metaIterations, minDist = 4):		
 		columns = []
 
 		for sprite,spritename in zip(sprites,spriteNames):
@@ -73,7 +73,7 @@ class FrameParser:
 				c1 = tuple(c1)
 				for c2 in columns:
 					c2 = tuple(c2)
-					if c1 != c2 and OverlapAmount(c1, c2)>=overlapThreshold:
+					if c1 != c2 and OverlapAmount(c1, c2)>=overlapThreshold and matching["./"+spritesDirectory+"/"+c1[1]]["./"+spritesDirectory+"/"+c2[1]] > 0.1:
 						if c2 not in inconsistent[c1]:
 							inconsistent[c1].add(c2)
 						if c1 not in inconsistent[c2]:
@@ -99,28 +99,26 @@ class FrameParser:
 			for cO in inconsistent[c]:
 				if cO in potentials:
 					potentials.remove(cO)
-		Tmax = 50
-		Tmin = 0.25
+		
 		TFactor = -math.log(Tmax / Tmin)
 		def getEnergy(s):
 			energy = 0
 			for c in s:
 				energy += float(c[4])*float(c[5])*float(c[6])
 			return frame.shape[0]*frame.shape[1]-energy
-		steps = 100
-		metaSteps = 5
+		
 		ec = getEnergy(chosen)
 		bestEnergy = ec
 		bestSet = chosen
 		if len(chosen) > 0:
-			for ii in range(metaSteps):
+			for ii in range(metaIterations):
 				ec = bestEnergy
 				chosen = bestSet
 				print ii
-				for ti in range(steps):
+				for ti in range(iterations):
 					n = neighbor(chosen)
 					en = getEnergy(n)
-					T = Tmax*math.exp(TFactor*ti/steps)
+					T = Tmax*math.exp(TFactor*ti/iterations)
 					dE = en-ec
 					if  dE > 0 and  math.exp(-dE / T) < random.random():
 						pass #min(math.exp(min(T*0.5,-dE)/T),1) < random.random():#(dE > 0 and math.exp(-dE/T)  < random.random()):
@@ -199,24 +197,33 @@ if __name__ == '__main__':
 	FFMPEG_BIN = "ffmpeg" # Use on Linux ans Mac OS
 	#FFMPEG_BIN = "ffmpeg.exe" # Use on Windows
 
+	import yaml
+	inputfile = sys.argv[1]
+	with open(inputfile,'rb') as f:
+		inputfile = yaml.load(f)
+
 
 	#Example call: python VideoParser.py Gameplay.mp4 sprites 1
-	video = sys.argv[1]
-	spritesDirectory = sys.argv[2]
-	framesPerSecond = sys.argv[3]
-	threshold = 0.75
+	video = inputfile['video']
+	spritesDirectory = inputfile['spritesDirectory']
+	framesPerSecond = inputfile['framesPerSecond']
+	threshold = inputfile['imageThreshold']
 	#The folder that the frame images will end up in
-	folder = "./frames/"	
+	folder = inputfile['outputFolder']	
 	if not os.path.exists(folder):
 		os.makedirs(folder)
 	
-	scale = '1'
-	if len(sys.argv) == 5:
-		scale = sys.argv[4]
+	scale = inputfile['videoScaling']
+
+	overlapThreshold = inputfile['overlapThreshold']
+	Tmin = inputfile['Tmin']
+	Tmax = inputfile['Tmax']
+	iterations = inputfile['iterations']
+	metaIterations = inputfile['metaIterations']
 	#Run the parser to generate the frame images
 	fname = folder+"frameDescriptions{}_{}_{}.csv".format(video,framesPerSecond,threshold)
 	if not os.path.isfile(fname):
-		os.system(FFMPEG_BIN+ " -i "+video+" -r "+framesPerSecond+' -vf scale=iw*'+scale  +':ih*'+scale  + ' ' +folder+"image-%08d.png")#" -vf scale="+widthOfFrame+":"+heightOfFrame+
+		os.system(FFMPEG_BIN+ " -i "+video+" -r {}".format(framesPerSecond)+' -vf scale=iw*{}'.format(scale)  +':ih*{}'.format(scale)  + ' ' +folder+"image-%08d.png")#" -vf scale="+widthOfFrame+":"+heightOfFrame+
 		
 		sprites = []
 		spriteNames ={}
@@ -261,7 +268,7 @@ if __name__ == '__main__':
 			splits =frameFile.split("image-")
 			frameNumber = int(splits[len(splits)-1][:-4])
 
-			columns = fp.GetFrameDescription(frameNumber,frame_gray,sprites,matching)
+			columns = fp.GetFrameDescription(frameNumber,frame_gray,sprites,matching, overlapThreshold ,Tmin,Tmax,iterations,metaIterations)
 
 			for c in columns:
 				writer.writerow(c)

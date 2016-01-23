@@ -10,17 +10,59 @@ from scipy.stats import norm
 
 import networkx as nx
 
+def AABBOverlap(rect1, rect2, printIt = False):
+
+	#Rectangle defined by rect1
+	r1left = int(rect1[0])
+	r1right = r1left + int(rect1[1])
+	r1bottom = int(rect1[2])
+	r1top = r1bottom + int(rect1[3])
+
+	#Rectangle defined by rect2
+	r2left = int(rect2[0])
+	r2right = r2left + int(rect2[1])
+	r2bottom = int(rect2[2])
+	r2top = r2bottom + int(rect2[3])
+	distanceThreshold = 2
+	if  (r1left - r2right <  distanceThreshold and r2left -  r1right <  distanceThreshold  and 
+		r1bottom - r2top < distanceThreshold and r2bottom-r1top < distanceThreshold) :
+		left = abs(r1left - r2right)
+		right = abs(r1right-r2left)
+		up = abs(r1top-r2bottom)
+		down = abs(r1bottom-r2top)
+		if down < left and down < right and down < up:
+			return 'down'
+		if up < left and up < right:
+			return 'up'
+		if  left < right:
+			return 'left'
+		return 'right'
+
+	else:
+		return False
+
 if __name__ == '__main__':
 	FFMPEG_BIN = "ffmpeg" # Use on Linux ans Mac OS
 	#FFMPEG_BIN = "ffmpeg.exe" # Use on Windows
 
 
-	#Example call: python VideoParser.py Gameplay.mp4 sprites 1
-	spritesDirectory = sys.argv[1]
-	frameInformation = sys.argv[2]
+	import yaml
+	inputfile = sys.argv[1]
+	with open(inputfile,'rb') as f:
+		inputfile = yaml.load(f)
 
-	#The folder that the frame images will end up in
-	folder = "./frames/"	
+
+	spritesDirectory = inputfile['spritesDirectory']
+	frameInformation = inputfile['frameCSV']
+
+	folder = inputfile['frameFolder']
+	distanceScale = inputfile['distanceScale']
+	creationCost = inputfile['creationCost']
+	deletionCost = inputfile['deletionCost']
+	missGate = inputfile['missGate']
+	minTrackLength = inputfile['minTrackLength']
+	movingProbThreshold = inputfile['movingProbThreshold']
+	edgeGuard = inputfile['edgeGuard']
 
 	for frameFile in glob.glob(folder+"*.png"):
 		frameImage = cv2.imread(frameFile)
@@ -33,10 +75,6 @@ if __name__ == '__main__':
 		sprite_gray =ImageOps.grayscale(Image.open(filename))
 		sprites[filename] = sprite_gray
 
-	distanceScale = 1000
-	creationCost = 0.1
-	deletionCost = 0.015
-	missGate = 14
 
 	gaussian_kernel_sigma = 1.5
 	gaussian_kernel_width = 11
@@ -106,7 +144,7 @@ if __name__ == '__main__':
 			pID = fID - 1
 			G = nx.DiGraph()
 			for trackID in activeTracks:
-				trackWeight = pow(min(1,creationCost+float(1+len(tracks[trackID]))/15.0),powValue)
+				trackWeight = pow(min(1,creationCost+float(1+len(tracks[trackID]))/minTrackLength),powValue)
 				lastPt = tracks[trackID][-1]
 				sprite1 = lastPt[1]
 				x1 = lastPt[2]
@@ -223,10 +261,12 @@ if __name__ == '__main__':
 			if time not in timeline:
 				timeline[time] = []
 			timeline[time].append(trackID)
-
 	trackVelocities = {}
+	lastTime = -1
 	for time in range(0,len(frames)):
 		prevTime = time-1
+		if len(timeline[time]) > 0:
+			lastTime = time
 		for trackID in timeline[time]:
 			cx = timeTracks[trackID][time][2]
 			cy = timeTracks[trackID][time][3]
@@ -256,8 +296,8 @@ if __name__ == '__main__':
 			#print (medX,medY),trackVelocities[trackID][time],(trackVelocities[trackID][time][0]-medX,trackVelocities[trackID][time][1]-medY )
 			trackVelocities[trackID][time] = (trackVelocities[trackID][time][0]-medX,trackVelocities[trackID][time][1]-medY )
 	trackVelocities2 = {}
-	window = 3
-	window = range(-(window/2),1+window/2) #[-2,-1,0,1,2]
+	window = inputfile['velMedianWindow']
+	window = range(-(window/2),1+window/2) #[-2,-1,0,edgeGuard]
 	
 	for track in trackVelocities:
 		trackVelocities2[track] = {}
@@ -288,37 +328,59 @@ if __name__ == '__main__':
 			else:
 				probabilityOfMoving[sprite]['N'] += 1
 	for sprite in probabilityOfMoving:
-		print sprite,float(probabilityOfMoving[sprite]['Y'])/float(probabilityOfMoving[sprite]['Y']+probabilityOfMoving[sprite]['N'])
+		#print sprite,float(probabilityOfMoving[sprite]['Y'])/float(probabilityOfMoving[sprite]['Y']+probabilityOfMoving[sprite]['N'])
 		probabilityOfMoving[sprite] = float(probabilityOfMoving[sprite]['Y'])/float(probabilityOfMoving[sprite]['Y']+probabilityOfMoving[sprite]['N'])
 		
 	minX = 0
 	minY = 0
 	maxX = frameImage.shape[1]
 	maxY = frameImage.shape[0]
-	minTrackLength = 14
-	movingProbThreshold = 0.15
 	with open(fname+'Velocities','wb') as velfile:
 		for trackID, track in tracks.items():
 			for state in track:
 				velfile.write('{},{},{},{},{}\n'.format(state[0],state[2],state[3],trackVelocities[trackID][state[0]][0],trackVelocities[trackID][state[0]][1]))
+	
+	causes = {}
+	opposite = {'left':'right',
+				'right':'left',
+				'up':'down',
+				'down':'up'}
+	for trackID, track in tracks.items():
+		if len(track) > minTrackLength:
+			for state in track:
+				time = state[0]
+				width =  sprites[directory+state[1]].size[0]
+				height = sprites[directory+state[1]].size[1]
+				rect1 = (state[2],width,state[3],height)
+				for otherTrack in timeline[time]:
+					if otherTrack != trackID:
+						otherState = timeTracks[otherTrack][time]
+						otherWidth =  sprites[directory+otherState[1]].size[0]
+						otherHeight = sprites[directory+otherState[1]].size[1]
+						rect2 = (otherState[2],otherWidth,otherState[3],otherHeight)
+						overlap = AABBOverlap(rect1,rect2)
+						if overlap:
+							if time not in causes:
+								causes[time] = set()
+							causes[time].add((trackID,otherTrack,overlap))
+							causes[time].add((otherTrack,trackID,opposite[overlap]))
 	for trackID, track in tracks.items():
 		if len(track) > minTrackLength:
 			if track[0][0] != 0:
-				width = 1.2*sprites[directory+track[0][1]].size[0]
-				height = 1.2*sprites[directory+track[0][1]].size[1]
+				width = edgeGuard*sprites[directory+track[0][1]].size[0]
+				height = edgeGuard*sprites[directory+track[0][1]].size[1]
 				if abs(track[0][2]-minX) > width and abs(track[0][2]-maxX) > width and abs(track[0][3]-minY) > height and abs(track[0][3]-maxY) > height: 
 					if track[0][0] not in events:
 						events[track[0][0]] = []
-					events[track[0][0]].append( ('C',track[0][1],track[0][2],track[0][3],minX,maxX,minY,maxY))
+					events[track[0][0]].append( ('C',track[0][1]))
 			
-			width = 1.2*sprites[directory+track[-1][1]].size[0]
-			height = 1.2*sprites[directory+track[-1][1]].size[1]
-			if 'cow' in track[-1][1]:
-				print track[-1],minX,maxX,minY,maxY,width,height
-			if abs(track[-1][2]-minX) > width and abs(track[-1][2]-maxX) > width and abs(track[-1][3]-minY) > height and abs(track[-1][3]-maxY) > height: 
-				if track[-1][0]+1 not in events:
-					events[track[-1][0]+1] = []
-				events[track[-1][0]+1].append( ('D',track[-1][1],track[-1][2],track[-1][3]))
+			width = edgeGuard*sprites[directory+track[-1][1]].size[0]
+			height = edgeGuard*sprites[directory+track[-1][1]].size[1]
+			if  track[-1][0] != lastTime:
+				if abs(track[-1][2]-minX) > width and abs(track[-1][2]-maxX) > width and abs(track[-1][3]-minY) > height and abs(track[-1][3]-maxY) > height: 
+					if track[-1][0]+1 not in events:
+						events[track[-1][0]+1] = []
+					events[track[-1][0]+1].append( ('D',track[-1][1]))
 			prevState = None
 			prevTime = None
 			for state in track:
@@ -338,22 +400,37 @@ if __name__ == '__main__':
 						if np.sign(vx) != np.sign(pvx) and abs(pvx) > 0 and vx == 0.0:
 							if time not in events:
 								events[time] = []
-							events[time].append(('VX',state[1],pvx,vx))
+							events[time].append(('VX',state[1]))
 						if np.sign(vy) != np.sign(pvy) and abs(pvy) > 0 and vy == 0 :
 							if time not in events:
 								events[time] = []
-							events[time].append(('VY',state[1],pvy,vy))
+							events[time].append(('VY',state[1]))
 
 				prevState = state[1]
 				prevTime = time
 	#print events
-
+	collisionWindow = 2
 	for time in range(1,len(frames)):	
-		if time in events:
-			print time, events[time]
+		if time in causes:
+			for cause in causes[time]:
+				causeStr = (timeTracks[cause[0]][time][1],timeTracks[cause[1]][time][1],cause[2])
+				noGood = False
+				for offset in range(1,collisionWindow):
+					if time-offset in causes:
+						for otherCause in causes[time-offset]:
+							if cause == otherCause:
+								noGood = True
+							otherCauseStr = (timeTracks[otherCause[0]][time-offset][1],timeTracks[otherCause[1]][time-offset][1],otherCause[2])
+							if causeStr == otherCauseStr:
+								noGood = True
+				if not noGood:
+					print time,timeTracks[cause[0]][time][1],timeTracks[cause[1]][time][1],cause[2]
+			if (time) in events:
+				for event in events[time]:
+					eventStr = ''
+					for e in event:
+						eventStr += '{} '.format(e) 
+					print time, eventStr
 	#for track,ii in zip(tracks,range(len(tracks))):
 	#	for state in track:
 	#		print ii, state
-
-
-
