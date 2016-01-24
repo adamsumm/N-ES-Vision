@@ -1,0 +1,787 @@
+78 C floatBlock.png 
+82 floatBlock.png floatBlock.png down
+82 floatBlock.png floatBlock.png up
+82 floatBlock.png floatBlock.png up
+82 floatBlock.png floatBlock.png down
+86 floatBlock.png farmer1.png right
+86 farmer1.png floatBlock.png right
+86 farmer1.png floatBlock.png left
+86 floatBlock.png farmer1.png left
+87 tree.png farmer1.png left
+87 farmer1.png tree.png right
+88 S farmer1.png farmer3.png 
+91 farmer4.png floatBlock.png left
+91 floatBlock.png farmer4.png down
+91 farmer4.png floatBlock.png right
+91 floatBlock.png farmer4.png right
+91 farmer4.png floatBlock.png up
+91 floatBlock.png farmer4.png left
+91 S farmer3.png farmer4.png 
+94 tree.png farmer4.png up
+94 farmer4.png tree.png down
+95 S farmer4.png farmer2.png 
+97 S farmer2.png farmer3.png 
+99 tree.png farmer3.png right
+99 farmer3.png tree.png left
+102 floatBlock.png farmer4.png down
+102 floatBlock.png farmer4.png down
+102 farmer4.png floatBlock.png up
+102 farmer4.png floatBlock.png up
+102 S farmer3.png farmer4.png 
+106 S farmer4.png farmer2.png 
+109 S farmer2.png farmer3.png 
+112 farmer4.png floatBlock.png up
+112 floatBlock.png farmer4.png down
+112 floatBlock.png cow2.png down
+112 floatBlock.png farmer4.png down
+112 farmer4.png floatBlock.png up
+112 cow2.png floatBlock.png up
+112 S farmer3.png farmer4.png 
+113 VX cow2.png 
+114 S cow2.png cow1.png 
+116 S farmer4.png farmer2.png 
+117 VX farmer2.png 
+117 S cow1.png cow2.png 
+120 S farmer2.png farmerJump.png 
+120 S cow2.png cow1.png 
+122 floatBlock.png farmerJump.png left
+122 farmerJump.png floatBlock.png right
+124 floatBlock.png cow2.png right
+124 cow2.png floatBlock.png left
+124 S cow1.png cow2.png 
+126 VX farmerJump.png 
+126 VX cow2.png 
+128 S cow2.png cow1.png 
+130 VY farmerJump.png 
+132 S cow1.png cow2.png 
+133 S farmerJump.png farmerJumpFlip.png 
+134 farmerJumpFlip.png floatBlock.png up
+134 floatBlock.png farmerJumpFlip.png down
+135 S farmerJumpFlip.png farmer1Flip.png 
+135 VX farmer1Flip.png 
+135 VY farmer1Flip.png 
+136 floatBlock.png cow1.png left
+136 floatBlock.png cow1.png right
+136 cow1.png floatBlock.png left
+136 cow1.png floatBlock.png right
+136 S cow2.png cow1.png 
+139 S cow1.png cow2.png 
+142 S farmer1Flip.png farmer3Flip.png 
+143 S cow2.png cow1.png 
+146 farmer4Flip.png floatBlock.png up
+146 cow2.png floatBlock.png right
+146 floatBlock.png farmer4Flip.png down
+146 floatBlock.png farmer4Flip.png down
+146 cow2.png floatBlock.png left
+146 farmer4Flip.png floatBlock.png up
+146 floatBlock.png cow2.png left
+146 floatBlock.png cow2.png right
+146 S farmer3Flip.png farmer4Flip.png 
+146 VY farmer4Flip.png 
+146 S cow1.png cow2.png 
+149 floatBlock.png farmer2Flip.png down
+149 farmer2Flip.png floatBlock.png up
+149 S farmer4Flip.png farmer2Flip.png 
+150 S farmer2Flip.png farmer1Flip.png 
+150 VX farmer1Flip.png 
+150 S cow2.png cow1.png 
+152 S farmer1Flip.png farmer1.png 
+153 S cow1.png cow2.png 
+155 cow2.png floatBlock.png left
+155 floatBlock.png cow2.png right
+155 S farmer1.png farmer3.png 
+159 S farmer3.png farmerJump.png 
+161 floatBlock.png farmerJump.png left
+161 farmerJump.png floatBlock.png right
+167 D floatBlock.png 
+169 VX farmerJump.png 
+169 VY farmerJump.png 
+173 farmerJump.png floatBlock.png up
+173 floatBlock.png farmerJump.png down
+174 S farmerJump.png farmer1.png 
+174 VY farmer1.png 
+178 S farmer1.png farmerJump.png 
+179 S farmerJump.png farmerJumpFlip.png 
+186 coin1B.png farmerJumpFlip.png right
+186 farmerJumpFlip.png coin1B.png left
+188 D coin1B.png 
+188 VY farmerJumpFlip.png 
+190 floatBlock.png farmerJumpFlip.png down
+190 farmerJumpFlip.png floatBlock.png up
+191 VY farmerJumpFlip.png 
+193 S farmerJumpFlip.png farmer1Flip.png 
+194 VX farmer1Flip.png 
+197 S farmer1Flip.png farmer1.png 
+199 S farmer1.png farmerJump.png 
+205 floatBlock.png farmerJump.png left
+205 farmerJump.png floatBlock.png right
+211 VX farmerJump.png 
+211 VY farmerJump.png 
+213 floatBlock.png floatBlock.png up
+213 floatBlock.png floatBlock.png down
+213 floatBlock.png floatBlock.png down
+213 floatBlock.png floatBlock.png up
+216 S farmerJump.png farmer3.png 
+216 VX farmer3.png 
+218 VY farmer3.png 
+220 S farmer3.png farmer4.png 
+223 S farmer4.png farmer2.png 
+224 VX farmer2.png 
+225 VY farmer2.png 
+228 cow1.png floatBlock.png up
+228 floatBlock.png cow1.png down
+228 S farmer2.png farmer3.png 
+230 farmer4.png floatBlock.png up
+230 farmer4.png floatBlock.png up
+230 floatBlock.png farmer4.png down
+230 floatBlock.png farmer4.png down
+230 S farmer3.png farmer4.png 
+231 farmer4.png floatBlock.png right
+231 floatBlock.png farmer4.png left
+231 S cow1.png cow2.png 
+232 floatBlock.png cow2.png right
+232 cow2.png floatBlock.png left
+233 farmer2.png floatBlock.png right
+233 floatBlock.png farmer2.png down
+233 floatBlock.png farmer2.png left
+233 farmer2.png floatBlock.png up
+233 S farmer4.png farmer2.png 
+233 VX farmer2.png 
+235 cow1.png floatBlock.png up
+235 floatBlock.png cow1.png down
+235 S cow2.png cow1.png 
+236 S farmer2.png farmerJump.png 
+238 S cow1.png cow2.png 
+240 cow1.png floatBlock.png left
+240 floatBlock.png cow1.png right
+240 S cow2.png cow1.png 
+241 VX farmerJump.png 
+244 floatBlock.png cow1.png right
+244 cow1.png floatBlock.png left
+245 S cow1.png cow2.png 
+246 VX cow2.png 
+247 VX farmerJump.png 
+249 S cow2.png cow1.png 
+250 D cow1.png 
+253 C floatBlock.png 
+254 VX farmerJump.png 
+256 VX farmerJump.png 
+261 VY farmerJump.png 
+263 VX farmerJump.png 
+267 floatBlock.png farmerJump.png down
+267 floatBlock.png farmerJump.png down
+267 farmerJump.png floatBlock.png up
+267 farmerJump.png floatBlock.png up
+268 floatBlock.png farmerJump.png left
+268 floatBlock.png farmerJump.png right
+268 farmerJump.png floatBlock.png left
+268 farmerJump.png floatBlock.png right
+268 VY farmerJump.png 
+270 S farmerJump.png farmer3.png 
+271 S farmer3.png farmerJump.png 
+271 VX farmerJump.png 
+274 floatBlock.png cow2.png down
+274 cow2.png floatBlock.png up
+275 floatBlock.png cow2.png right
+275 cow2.png floatBlock.png left
+275 VX farmerJump.png 
+277 cow1.png floatBlock.png up
+277 floatBlock.png cow1.png down
+277 S cow2.png cow1.png 
+279 floatBlock.png cow2.png down
+279 floatBlock.png cow2.png down
+279 cow2.png floatBlock.png up
+279 cow2.png floatBlock.png up
+279 S cow1.png cow2.png 
+281 cow2.png floatBlock.png right
+281 floatBlock.png cow2.png left
+283 floatBlock.png cow1.png down
+283 cow1.png floatBlock.png up
+283 VX farmerJump.png 
+283 S cow2.png cow1.png 
+285 farmerJump.png floatBlock.png up
+285 floatBlock.png farmerJump.png down
+285 VY farmerJump.png 
+286 S farmerJump.png farmer1.png 
+286 S cow1.png cow2.png 
+287 floatBlock.png cow2.png left
+287 cow2.png floatBlock.png left
+287 cow2.png floatBlock.png right
+287 floatBlock.png cow2.png right
+287 S farmer1.png farmer1Flip.png 
+289 VX farmer1Flip.png 
+290 S cow2.png cow1.png 
+291 S farmer1Flip.png farmerJumpFlip.png 
+293 floatBlock.png cow2.png right
+293 cow2.png floatBlock.png left
+293 S farmerJumpFlip.png farmerJump.png 
+293 S cow1.png cow2.png 
+293 VX cow2.png 
+295 floatBlock.png cow2.png left
+295 cow2.png floatBlock.png right
+296 floatBlock.png cow1.png down
+296 cow1.png floatBlock.png up
+296 S cow2.png cow1.png 
+297 cow1.png floatBlock.png left
+297 floatBlock.png cow1.png right
+298 VX farmerJump.png 
+298 VX cow1.png 
+300 cow2.png floatBlock.png left
+300 floatBlock.png cow2.png right
+300 S cow1.png cow2.png 
+300 S cow1.png cow2.png 
+301 floatBlock.png cow2.png left
+301 cow2.png floatBlock.png right
+302 floatBlock.png cow2.png right
+302 cow2.png floatBlock.png left
+303 floatBlock.png cow1.png down
+303 cow1.png floatBlock.png up
+303 S cow2.png cow1.png 
+303 S cow2.png cow1.png 
+306 cow1.png floatBlock.png left
+306 floatBlock.png cow1.png right
+307 cow2.png cow1.png right
+307 floatBlock.png cow2.png down
+307 cow2.png floatBlock.png up
+307 floatBlock.png cow2.png right
+307 cow2.png floatBlock.png right
+307 cow2.png floatBlock.png left
+307 cow1.png cow2.png left
+307 floatBlock.png cow2.png down
+307 cow2.png floatBlock.png up
+307 floatBlock.png cow2.png left
+307 VX farmerJump.png 
+307 S cow1.png cow2.png 
+307 VX cow1.png 
+310 cow2.png cow1.png left
+310 cow1.png cow2.png right
+311 floatBlock.png cow1.png left
+311 cow1.png floatBlock.png right
+312 VX farmerJump.png 
+312 VX cow1.png 
+313 cow2.png cow1.png right
+313 cow1.png cow2.png left
+317 cow2.png cow1.png left
+317 cow1.png cow2.png right
+317 floatBlock.png cow1.png left
+317 cow1.png floatBlock.png right
+318 D floatBlock.png 
+319 VX farmerJump.png 
+319 VX cow2.png 
+321 cow2.png floatBlock.png right
+321 floatBlock.png cow2.png left
+321 D cow1.png 
+323 farmerJumpFlip.png cow2.png left
+323 cow2.png farmerJumpFlip.png right
+323 S farmerJump.png farmerJumpFlip.png 
+324 D cow2.png 
+327 VX farmerJumpFlip.png 
+331 S farmerJumpFlip.png farmerJump.png 
+340 floatBlock.png farmerJump.png down
+340 farmerJump.png floatBlock.png up
+341 VY farmerJump.png 
+343 S farmerJump.png farmer3.png 
+343 VX farmer3.png 
+347 tree.png floatBlock.png up
+347 floatBlock.png farmer4.png down
+347 floatBlock.png tree.png down
+347 tree.png floatBlock.png left
+347 floatBlock.png tree.png right
+347 floatBlock.png farmer4.png down
+347 farmer4.png floatBlock.png up
+347 floatBlock.png tree.png down
+347 farmer4.png floatBlock.png up
+347 tree.png floatBlock.png up
+347 S farmer3.png farmer4.png 
+347 VX farmer4.png 
+351 tree.png floatBlock.png left
+351 floatBlock.png tree.png right
+351 S farmer4.png farmer2.png 
+351 VX farmer2.png 
+353 floatBlock.png tree.png left
+353 tree.png floatBlock.png right
+355 floatBlock.png tree.png right
+355 tree.png floatBlock.png left
+355 S farmer2.png farmer3.png 
+355 VX farmer3.png 
+358 floatBlock.png farmer4.png down
+358 farmer4.png floatBlock.png left
+358 floatBlock.png farmer4.png right
+358 farmer4.png floatBlock.png up
+358 floatBlock.png farmer4.png down
+358 farmer4.png floatBlock.png up
+358 S farmer3.png farmer4.png 
+360 floatBlock.png tree.png right
+360 tree.png floatBlock.png right
+360 tree.png floatBlock.png left
+360 floatBlock.png tree.png left
+360 farmer4.png floatBlock.png left
+360 floatBlock.png farmer4.png right
+361 floatBlock.png farmer2.png down
+361 farmer2.png floatBlock.png up
+361 S farmer4.png farmer2.png 
+361 VX farmer2.png 
+363 farmer3.png tree.png right
+363 tree.png farmer3.png left
+363 S farmer2.png farmer3.png 
+368 floatBlock.png tree.png right
+368 tree.png floatBlock.png right
+368 floatBlock.png farmer4.png down
+368 floatBlock.png farmer4.png down
+368 farmer4.png floatBlock.png up
+368 tree.png floatBlock.png left
+368 farmer4.png floatBlock.png up
+368 floatBlock.png tree.png left
+368 S farmer3.png farmer4.png 
+370 tree.png farmer2.png up
+370 floatBlock.png tree.png right
+370 tree.png floatBlock.png right
+370 farmer2.png tree.png down
+370 tree.png floatBlock.png left
+370 floatBlock.png tree.png left
+370 S farmer4.png farmer2.png 
+370 VX farmer2.png 
+374 S farmer2.png farmer3.png 
+374 VX farmer3.png 
+376 S farmer3.png farmerJump.png 
+376 VX farmerJump.png 
+377 tree.png farmerJump.png right
+377 tree.png floatBlock.png right
+377 farmerJump.png tree.png left
+377 floatBlock.png tree.png left
+378 tree.png floatBlock.png left
+378 floatBlock.png tree.png right
+381 tree.png floatBlock.png left
+381 tree.png floatBlock.png right
+381 floatBlock.png tree.png right
+381 floatBlock.png tree.png left
+382 VX farmerJump.png 
+385 floatBlock.png tree.png left
+385 tree.png floatBlock.png left
+385 tree.png floatBlock.png right
+385 floatBlock.png tree.png right
+386 VY farmerJump.png 
+390 floatBlock.png farmerJump.png down
+390 tree.png floatBlock.png left
+390 floatBlock.png tree.png right
+390 farmerJump.png floatBlock.png up
+391 VY farmerJump.png 
+392 VX farmerJump.png 
+394 tree.png floatBlock.png left
+394 floatBlock.png tree.png right
+395 floatBlock.png tree.png left
+395 tree.png floatBlock.png right
+396 D floatBlock.png 
+398 tree.png floatBlock.png right
+398 floatBlock.png tree.png left
+398 floatBlock.png tree.png right
+398 tree.png floatBlock.png left
+399 VX farmerJump.png 
+401 VX farmerJump.png 
+401 VY farmerJump.png 
+403 tree.png floatBlock.png left
+403 floatBlock.png tree.png right
+403 VX farmerJump.png 
+404 tree.png floatBlock.png right
+404 floatBlock.png tree.png left
+405 VX farmerJump.png 
+406 farmer1.png floatBlock.png up
+406 floatBlock.png farmer1.png down
+406 S farmerJump.png farmer1.png 
+406 VY farmer1.png 
+410 tree.png floatBlock.png left
+410 floatBlock.png tree.png right
+410 D floatBlock.png 
+412 S farmer1.png farmerJump.png 
+413 floatBlock.png tree.png right
+413 tree.png floatBlock.png left
+414 floatBlock.png tree.png left
+414 tree.png floatBlock.png right
+416 farmerJump.png coin1B.png right
+416 floatBlock.png tree.png left
+416 coin1B.png farmerJump.png left
+416 tree.png floatBlock.png right
+417 D floatBlock.png 
+417 D coin1B.png 
+419 floatBlock.png farmer3.png down
+419 farmer3.png floatBlock.png up
+419 S farmerJump.png farmer3.png 
+419 D floatBlock.png 
+420 floatBlock.png farmer1.png left
+420 farmer1.png floatBlock.png right
+420 S farmer3.png farmer1.png 
+421 floatBlock.png farmer1.png down
+421 floatBlock.png tree.png left
+421 farmer1.png floatBlock.png up
+421 tree.png floatBlock.png right
+421 VY farmer1.png 
+422 VX farmer1.png 
+424 floatBlock.png tree.png left
+424 tree.png floatBlock.png right
+425 VX farmer1.png 
+428 D floatBlock.png 
+429 S farmer1.png farmerJump.png 
+431 VX farmerJump.png 
+433 D floatBlock.png 
+439 VX farmerJump.png 
+439 VY farmerJump.png 
+443 D floatBlock.png 
+445 floatBlock.png floatBlock.png down
+445 floatBlock.png floatBlock.png up
+446 floatBlock.png farmerJump.png down
+446 farmerJump.png floatBlock.png up
+447 S farmerJump.png farmer1.png 
+447 VY farmer1.png 
+448 VX farmer1.png 
+454 S farmer1.png farmerJump.png 
+455 D floatBlock.png 
+460 D floatBlock.png 
+461 D floatBlock.png 
+463 VY farmerJump.png 
+463 C floatBlock.png 
+467 D floatBlock.png 
+469 C floatBlock.png 
+470 floatBlock.png farmerJump.png right
+470 farmerJump.png floatBlock.png left
+471 floatBlock.png farmerJump.png down
+471 farmerJump.png floatBlock.png up
+471 VY farmerJump.png 
+474 S farmerJump.png farmer3.png 
+475 C floatBlock.png 
+476 floatBlock.png farmer4.png left
+476 farmer4.png floatBlock.png up
+476 farmer4.png floatBlock.png right
+476 floatBlock.png farmer4.png down
+476 S farmer3.png farmer4.png 
+477 VY farmer4.png 
+480 floatBlock.png cow1.png down
+480 cow1.png floatBlock.png up
+480 S farmer4.png farmer2.png 
+480 C floatBlock.png 
+481 VX cow1.png 
+482 VX farmer2.png 
+483 S farmer2.png farmer1.png 
+483 S cow1.png cow2.png 
+484 cow2.png floatBlock.png left
+484 floatBlock.png cow2.png right
+486 floatBlock.png cow1.png down
+486 cow1.png floatBlock.png up
+486 S cow2.png cow1.png 
+489 floatBlock.png cow2.png left
+489 cow2.png floatBlock.png right
+489 S cow1.png cow2.png 
+491 farmer1.png floatBlock.png left
+491 floatBlock.png farmer1.png right
+492 S farmer1.png farmerJump.png 
+492 C floatBlock.png 
+493 cow1.png floatBlock.png left
+493 floatBlock.png cow1.png right
+493 cow1.png floatBlock.png right
+493 floatBlock.png cow1.png down
+493 floatBlock.png cow1.png left
+493 cow1.png floatBlock.png up
+493 floatBlock.png cow1.png down
+493 cow1.png floatBlock.png up
+493 S cow2.png cow1.png 
+493 C cow1.png 
+494 VX cow1.png 
+495 C floatBlock.png 
+497 cow2.png floatBlock.png up
+497 cow2.png floatBlock.png right
+497 floatBlock.png cow2.png left
+497 floatBlock.png cow2.png down
+497 S cow1.png cow2.png 
+497 S cow1.png cow2.png 
+499 cow2.png floatBlock.png left
+499 cow2.png floatBlock.png right
+499 floatBlock.png cow2.png left
+499 floatBlock.png cow2.png right
+501 S cow2.png cow1.png 
+501 S cow2.png cow1.png 
+504 VX farmerJump.png 
+504 S cow1.png cow2.png 
+504 S cow1.png cow2.png 
+507 cow2.png floatBlock.png left
+507 floatBlock.png cow2.png right
+507 S farmerJump.png farmer1.png 
+507 VY farmer1.png 
+508 cow1.png floatBlock.png right
+508 cow1.png floatBlock.png right
+508 floatBlock.png cow1.png left
+508 floatBlock.png cow1.png left
+508 cow1.png floatBlock.png left
+508 floatBlock.png cow1.png right
+508 S cow2.png cow1.png 
+508 S cow2.png cow1.png 
+511 cow2.png floatBlock.png left
+511 cow2.png floatBlock.png left
+511 cow2.png floatBlock.png up
+511 floatBlock.png cow2.png right
+511 floatBlock.png cow2.png down
+511 floatBlock.png cow2.png right
+511 S farmer1.png farmerJump.png 
+511 S cow1.png cow2.png 
+511 S cow1.png cow2.png 
+511 C cow2.png 
+512 VX cow2.png 
+512 VX cow2.png 
+513 VX farmerJump.png 
+515 floatBlock.png cow1.png left
+515 floatBlock.png cow1.png left
+515 cow1.png floatBlock.png left
+515 floatBlock.png cow1.png down
+515 cow1.png floatBlock.png right
+515 cow1.png floatBlock.png up
+515 floatBlock.png cow1.png right
+515 cow1.png floatBlock.png right
+515 S cow2.png cow1.png 
+515 S cow2.png cow1.png 
+515 S cow2.png cow1.png 
+517 C floatBlock.png 
+518 S cow1.png cow2.png 
+518 S cow1.png cow2.png 
+518 S cow1.png cow2.png 
+520 cow2.png floatBlock.png left
+520 floatBlock.png cow2.png left
+520 cow2.png floatBlock.png left
+520 cow2.png floatBlock.png right
+520 floatBlock.png cow2.png right
+520 floatBlock.png cow2.png right
+520 C floatBlock.png 
+521 VY farmerJump.png 
+521 VX cow2.png 
+522 floatBlock.png cow1.png down
+522 cow1.png floatBlock.png up
+522 VX farmerJump.png 
+522 S cow2.png cow1.png 
+522 S cow2.png cow1.png 
+522 VX cow1.png 
+522 S cow2.png cow1.png 
+524 floatBlock.png cow1.png right
+524 cow1.png floatBlock.png left
+525 coin1B.png farmerJump.png down
+525 cow2.png floatBlock.png up
+525 floatBlock.png cow2.png down
+525 floatBlock.png cow2.png down
+525 floatBlock.png cow2.png left
+525 floatBlock.png cow2.png left
+525 cow2.png floatBlock.png right
+525 farmerJump.png coin1B.png up
+525 cow2.png floatBlock.png right
+525 cow2.png floatBlock.png up
+525 S cow1.png cow2.png 
+525 S cow1.png cow2.png 
+525 S cow1.png cow2.png 
+526 floatBlock.png cow2.png right
+526 cow2.png floatBlock.png left
+526 D coin1B.png 
+527 C floatBlock.png 
+529 cow1.png floatBlock.png right
+529 floatBlock.png cow1.png left
+529 VY farmerJump.png 
+529 S cow2.png cow1.png 
+529 S cow2.png cow1.png 
+529 S cow2.png cow1.png 
+530 floatBlock.png cow1.png right
+530 cow1.png floatBlock.png left
+531 cow1.png cow1.png right
+531 cow1.png cow1.png left
+532 cow2.png floatBlock.png up
+532 floatBlock.png cow2.png down
+532 floatBlock.png cow2.png down
+532 cow2.png floatBlock.png up
+532 floatBlock.png cow2.png down
+532 cow2.png floatBlock.png up
+532 S cow1.png cow2.png 
+532 S cow1.png cow2.png 
+532 S cow1.png cow2.png 
+533 cow2.png floatBlock.png left
+533 floatBlock.png cow2.png right
+536 cow1.png cow1.png right
+536 cow1.png cow1.png left
+536 S cow2.png cow1.png 
+536 S cow2.png cow1.png 
+536 S cow2.png cow1.png 
+537 cow1.png floatBlock.png right
+537 floatBlock.png cow1.png right
+537 cow1.png floatBlock.png left
+537 floatBlock.png cow1.png left
+537 VX cow1.png 
+537 VX cow1.png 
+540 cow2.png floatBlock.png left
+540 floatBlock.png cow2.png right
+540 S cow1.png cow2.png 
+540 S cow1.png cow2.png 
+540 S cow1.png cow2.png 
+544 floatBlock.png cow1.png down
+544 cow1.png floatBlock.png up
+544 S cow2.png cow1.png 
+544 S cow2.png cow1.png 
+544 S cow2.png cow1.png 
+546 VY farmerJump.png 
+546 S cow1.png cow2.png 
+546 S cow1.png cow2.png 
+546 S cow1.png cow2.png 
+547 floatBlock.png cow2.png left
+547 cow2.png floatBlock.png right
+549 S farmerJump.png farmer3.png 
+550 VX farmer3.png 
+550 S cow2.png cow1.png 
+550 VX cow1.png 
+550 S cow2.png cow1.png 
+550 VX cow1.png 
+553 floatBlock.png cow1.png right
+553 cow1.png floatBlock.png left
+553 floatBlock.png cow1.png left
+553 cow1.png floatBlock.png right
+553 cow1.png floatBlock.png left
+553 floatBlock.png cow1.png right
+553 floatBlock.png cow1.png left
+553 cow1.png floatBlock.png right
+553 S farmer3.png farmer4.png 
+555 floatBlock.png cow2.png down
+555 floatBlock.png cow2.png down
+555 cow2.png floatBlock.png up
+555 cow2.png floatBlock.png up
+555 S cow1.png cow2.png 
+555 S cow1.png cow2.png 
+558 farmer2.png floatBlock.png up
+558 floatBlock.png farmer2.png down
+558 floatBlock.png farmer2.png down
+558 farmer2.png floatBlock.png up
+558 S farmer4.png farmer2.png 
+558 VY farmer2.png 
+559 S cow2.png cow1.png 
+559 S cow2.png cow1.png 
+560 S farmer2.png farmer3.png 
+560 VY farmer3.png 
+561 S cow1.png cow2.png 
+561 S cow1.png cow2.png 
+562 S farmer3.png farmerJump.png 
+564 cow2.png floatBlock.png left
+564 floatBlock.png cow2.png right
+565 S cow2.png cow1.png 
+565 S cow2.png cow1.png 
+567 VX cow1.png 
+568 floatBlock.png cow2.png down
+568 cow2.png floatBlock.png up
+568 VX farmerJump.png 
+568 VY farmerJump.png 
+568 S cow1.png cow2.png 
+568 VX cow2.png 
+568 S cow1.png cow2.png 
+571 cow2.png cow2.png right
+571 cow2.png cow2.png left
+572 cow1.png floatBlock.png up
+572 cow1.png floatBlock.png up
+572 floatBlock.png cow1.png down
+572 floatBlock.png cow1.png down
+572 S cow2.png cow1.png 
+572 S cow2.png cow1.png 
+573 cow1.png floatBlock.png left
+573 floatBlock.png cow1.png right
+574 cow2.png floatBlock.png up
+574 floatBlock.png cow2.png down
+574 S cow1.png cow2.png 
+574 S cow1.png cow2.png 
+575 cow2.png floatBlock.png right
+575 cow2.png floatBlock.png right
+575 floatBlock.png cow2.png left
+575 floatBlock.png cow2.png left
+576 floatBlock.png cow2.png right
+576 cow2.png floatBlock.png left
+576 VX farmerJump.png 
+576 VX cow2.png 
+578 floatBlock.png tree.png down
+578 tree.png floatBlock.png up
+578 floatBlock.png cow1.png left
+578 floatBlock.png tree.png down
+578 tree.png floatBlock.png up
+578 floatBlock.png tree.png down
+578 tree.png floatBlock.png up
+578 floatBlock.png cow1.png left
+578 cow1.png floatBlock.png right
+578 cow1.png floatBlock.png right
+578 S cow2.png cow1.png 
+578 S cow2.png cow1.png 
+579 floatBlock.png farmerJump.png left
+579 farmerJump.png floatBlock.png right
+580 farmerJumpFlip.png floatBlock.png up
+580 farmerJumpFlip.png floatBlock.png up
+580 floatBlock.png farmerJumpFlip.png down
+580 floatBlock.png farmerJumpFlip.png down
+580 S farmerJump.png farmerJumpFlip.png 
+580 VX cow1.png 
+581 VY farmerJumpFlip.png 
+582 S cow1.png cow2.png 
+583 S farmerJumpFlip.png farmer3Flip.png 
+585 cow1.png cow2.png right
+585 cow2.png cow1.png left
+585 VX cow2.png 
+587 farmer1Flip.png floatBlock.png up
+587 cow2.png cow1.png right
+587 floatBlock.png farmer1Flip.png down
+587 cow1.png cow2.png left
+587 floatBlock.png farmer1Flip.png down
+587 farmer1Flip.png floatBlock.png up
+587 S farmer3Flip.png farmer1Flip.png 
+587 VX farmer1Flip.png 
+589 S farmer1Flip.png farmerJump.png 
+591 VX cow2.png 
+595 cow1.png cow2.png right
+595 cow2.png cow1.png left
+595 VX cow1.png 
+599 tree.png floatBlock.png left
+599 floatBlock.png tree.png right
+601 farmerJump.png floatBlock.png up
+601 floatBlock.png farmerJump.png down
+602 cow2.png cow1.png right
+602 cow1.png cow2.png left
+602 floatBlock.png cow1.png left
+602 cow1.png floatBlock.png right
+602 coin1B.png tree.png left
+602 tree.png coin1B.png right
+602 cow1.png floatBlock.png right
+602 floatBlock.png cow1.png left
+602 VY farmerJump.png 
+602 VX cow2.png 
+604 cow2.png floatBlock.png right
+604 floatBlock.png cow1.png up
+604 cow2.png floatBlock.png right
+604 floatBlock.png cow2.png left
+604 cow1.png floatBlock.png down
+604 floatBlock.png cow2.png left
+604 VX farmerJump.png 
+604 VX cow1.png 
+606 VX farmerJump.png 
+607 farmerJump.png floatBlock.png right
+607 floatBlock.png farmerJump.png left
+610 VX farmerJump.png 
+616 VY farmerJump.png 
+618 floatBlock.png tree.png left
+618 tree.png floatBlock.png right
+619 VX farmerJump.png 
+620 floatBlock.png farmer1.png down
+620 farmer1.png floatBlock.png up
+620 S farmerJump.png farmer1.png 
+620 VY farmer1.png 
+624 S farmer1.png farmerJump.png 
+626 floatBlock.png farmerJump.png left
+626 farmerJump.png floatBlock.png right
+627 farmerJump.png floatBlock.png up
+627 floatBlock.png farmerJump.png down
+629 D floatBlock.png 
+631 VX farmerJump.png 
+633 VY farmerJump.png 
+636 VX farmerJump.png 
+638 farmer1.png floatBlock.png up
+638 floatBlock.png farmer1.png down
+638 S farmerJump.png farmer1.png 
+639 VY farmer1.png 
+643 S farmer1.png farmerJump.png 
+646 farmerJump.png rose.png right
+646 rose.png farmerJump.png left
+646 D floatBlock.png 
+646 D floatBlock.png 
+647 farmerJump.png rose.png up
+647 rose.png farmerJump.png down
