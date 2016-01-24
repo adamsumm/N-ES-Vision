@@ -372,15 +372,15 @@ if __name__ == '__main__':
 				if abs(track[0][2]-minX) > width and abs(track[0][2]-maxX) > width and abs(track[0][3]-minY) > height and abs(track[0][3]-maxY) > height: 
 					if track[0][0] not in events:
 						events[track[0][0]] = []
-					events[track[0][0]].append( ('C',track[0][1]))
+					events[track[0][0]].append( ('C',track[0][1],trackID))
 			
 			width = edgeGuard*sprites[directory+track[-1][1]].size[0]
 			height = edgeGuard*sprites[directory+track[-1][1]].size[1]
 			if  track[-1][0] != lastTime:
 				if abs(track[-1][2]-minX) > width and abs(track[-1][2]-maxX) > width and abs(track[-1][3]-minY) > height and abs(track[-1][3]-maxY) > height: 
-					if track[-1][0]+1 not in events:
-						events[track[-1][0]+1] = []
-					events[track[-1][0]+1].append( ('D',track[-1][1]))
+					if track[-1][0] not in events:
+						events[track[-1][0]] = []
+					events[track[-1][0]].append( ('D',track[-1][1],trackID))
 			prevState = None
 			prevTime = None
 			for state in track:
@@ -389,7 +389,7 @@ if __name__ == '__main__':
 				if prevState and prevState != state[1]:
 					if time not in events:
 						events[time] = []
-					events[time].append(('S',prevState,state[1]))
+					events[time].append(('S',prevState,state[1],trackID))
 				if probabilityOfMoving[state[1]] > movingProbThreshold:
 					if prevTime:
 						vx = trackVelocities[trackID][time][0]
@@ -400,37 +400,73 @@ if __name__ == '__main__':
 						if np.sign(vx) != np.sign(pvx) and abs(pvx) > 0 and vx == 0.0:
 							if time not in events:
 								events[time] = []
-							events[time].append(('VX',state[1]))
+							events[time].append(('VX',state[1],trackID))
 						if np.sign(vy) != np.sign(pvy) and abs(pvy) > 0 and vy == 0 :
 							if time not in events:
 								events[time] = []
-							events[time].append(('VY',state[1]))
+							events[time].append(('VY',state[1],trackID))
 
 				prevState = state[1]
 				prevTime = time
 	#print events
 	collisionWindow = 2
+	displayWindow = 3
+	validCollisions = {}
+	reportedCollisions = {}
 	for time in range(1,len(frames)):	
+		validCollisions[time] = set()
+		reportedCollisions[time] = set()
+		for offset in range(displayWindow):
+			if time -offset in validCollisions:
+				for coll in validCollisions[time-offset]:
+					if time in timeTracks[coll[3]] and time in timeTracks[coll[4]]:
+						reportedCollisions[time].add(coll) # print time,coll[0],coll[1],coll[2]
 		if time in causes:
 			for cause in causes[time]:
 				causeStr = (timeTracks[cause[0]][time][1],timeTracks[cause[1]][time][1],cause[2])
-				noGood = False
+				good = False
 				for offset in range(1,collisionWindow):
 					if time-offset in causes:
+						foundIt = False
 						for otherCause in causes[time-offset]:
-							if cause == otherCause:
-								noGood = True
 							otherCauseStr = (timeTracks[otherCause[0]][time-offset][1],timeTracks[otherCause[1]][time-offset][1],otherCause[2])
-							if causeStr == otherCauseStr:
-								noGood = True
-				if not noGood:
-					print time,timeTracks[cause[0]][time][1],timeTracks[cause[1]][time][1],cause[2]
-			if (time) in events:
+								
+							if cause == otherCause or causeStr == otherCauseStr:
+								foundIt = True
+						good = not foundIt or good
+						if good:
+							break
+					else: 
+						good = True
+						break
+				if good:
+					validCollisions[time].add((timeTracks[cause[0]][time][1],timeTracks[cause[1]][time][1],cause[2],cause[0],cause[1]))
+					#print time,timeTracks[cause[0]][time][1],timeTracks[cause[1]][time][1],cause[2]
+					reportedCollisions[time].add( (timeTracks[cause[0]][time][1],timeTracks[cause[1]][time][1],cause[2],cause[0],cause[1]))
+			''' if (time) in events:
 				for event in events[time]:
 					eventStr = ''
 					for e in event:
 						eventStr += '{} '.format(e) 
 					print time, eventStr
-	#for track,ii in zip(tracks,range(len(tracks))):
-	#	for state in track:
-	#		print ii, state
+			'''
+
+	fname = frameInformation + '_{}{}{}{}.CEPairs'.format(distanceScale,creationCost,deletionCost,missGate)
+	with open(fname,'wb') as outfile:
+		outfile.write('ObjectA,ObjectB,A2BDir,EffectType,Source,Target,Which\n')
+		for time in reportedCollisions:
+			for collision in reportedCollisions[time]:
+				if time in events:
+					for event in events[time]:
+						#Mario,GROUND,D,VelChange,Mario,None,A
+						other = 'None'
+						if len(event) == 4:
+							other = event[3]
+						who = 'Other'
+						if event[2] == collision[3]:
+							who = "A"
+						if event[2] == collision[4]:
+							who = "B"
+						outfile.write('{},{},{},{},{},'.format(collision[0],collision[1],collision[2],event[0],event[1],other)+who +'\n')
+				else:
+					outfile.write('{},{},{},{},{},{}\n'.format(collision[0],collision[1],collision[2],'None','None','None'))
